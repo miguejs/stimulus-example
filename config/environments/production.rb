@@ -69,22 +69,6 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
-config.action_mailer.perform_caching = false
-config.action_mailer.default_url_options = { :host => "stimulus-example.com" }
-config.action_mailer.delivery_method = :smtp
-config.action_mailer.perform_deliveries = true
-config.action_mailer.raise_delivery_errors = false
-config.action_mailer.default :charset => "utf-8"
-config.action_mailer.smtp_settings = {
-  :user_name => ENV["SENDGRID_USERNAME"],
-  :password => ENV["SENDGRID_PASSWORD"],
-  :domain => "stimulus-example.com",
-  :address => "smtp.sendgrid.net",
-  :port => 587,
-  :authentication => :plain,
-  :enable_starttls_auto => true
-}
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
@@ -107,8 +91,4 @@ config.action_mailer.smtp_settings = {
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.middleware.use Rack::Deflater
-  config.force_ssl = true
-  config.middleware.use Rack::CanonicalHost, ENV.fetch("APPLICATION_HOST", "stimulus-example.com")
-
 end

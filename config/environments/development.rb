@@ -31,10 +31,9 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/previews"
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -53,8 +52,6 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  config.web_console.whitelisted_ips = ['172.16.0.0/12', '192.168.0.0/16']
-        
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
