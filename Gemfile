@@ -14,8 +14,6 @@ gem "redis", '~> 4.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-# For memory profiling
-gem "rack-mini-profiler", require: false
 
 # CSS frameworks
 gem "normalize-rails"
@@ -30,8 +28,6 @@ group :development do
   gem "spring-commands-rspec"
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "annotate"
-  gem "rack-timeout", require:"rack/timeout/base"
-  gem "rails-erd"
 end
 
 # Test gems
