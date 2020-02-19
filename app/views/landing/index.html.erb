@@ -1,6 +1,8 @@
 <div data-controller="portrait" class="mt-16 container mx-auto flex flex-wrap justify-center">
   <div class="max-w-sm rounded overflow-hidden shadow-lg object-none object-center">
-    <img data-target="portrait.image"  class="w-full" src="https://picsum.photos/700/500">
+    <button data-action="click->portrait#changePicture" class="pointer-events-auto" >
+      <img data-target="portrait.image" class="w-full " src="https://picsum.photos/700/500">
+    </button>
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2">Artist</div>
     </div>
