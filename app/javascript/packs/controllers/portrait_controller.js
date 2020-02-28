@@ -1,12 +1,8 @@
 import { Controller } from "stimulus"
 const axios = require('axios');
 export default class extends Controller {
-  static targets = ["image", "changeButton", "author"]
+  static targets = ["image", "changeButton", "author", "authorInput", "form"]
 
-  connect() {
-    this.changePicture()
-  }
-  
   get image() {
     return this.imageTarget
   }
@@ -30,8 +26,11 @@ export default class extends Controller {
   }
 
    async setImageDetails() {
-    const { author } = await this.getimageDetails(this.getIdFromImage())  
+    const { id, author, download_url } = await this.getimageDetails()  
     this.authorTarget.innerHTML = author
+    this.formTarget.portrait_author.value = author
+    this.formTarget.portrait_url.value = download_url
+    this.formTarget.portrait_url.pic_id = id
   }
 
   getIdFromImage() {
@@ -46,9 +45,9 @@ export default class extends Controller {
     this.toggleAvailability()
   }
 
-  async getimageDetails(id) {
+  async getimageDetails() {
+    const id = this.getIdFromImage()
     let response = await axios.get(`${this.imageProvider}/id/${id}/info`)
     return response.data
   }
-
 }

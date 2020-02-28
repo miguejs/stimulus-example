@@ -1,0 +1,18 @@
+
+<div data-portrait-image-provider="https://picsum.photos" 
+     data-controller="portrait" class="ml-10 mt-10 max-w-sm rounded overflow-hidden shadow-lg object-none object-center">
+  <button data-target="portrait.changeButton" data-action="click->portrait#changePicture" class="pointer-events-auto" >
+    <img data-target="portrait.image" class="w-full" src="<%= image["download_url"]%>">
+  </button>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2" data-target="portrait.author"><%= image["author"]%></div>
+    <%= form_with(model: @portrait, html: { data: { target: 'portrait.form', type: "html"}}) do |f| %>
+      <%= f.hidden_field :author, value: image["author"]%>
+      <%= f.hidden_field :url, value: image["download_url"] %>
+      <%= f.hidden_field :pic_id, value: image["id"] %>
+      <button type="submit" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
+        <span>Save</span>
+      </button>
+    <% end %>
+  </div>
+</div>
