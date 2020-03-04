@@ -19,7 +19,6 @@ require("css/application.scss")
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
 import Rails from '@rails/ujs';
-
 var Turbolinks = require("turbolinks")
 
 Turbolinks.start()

@@ -1,0 +1,17 @@
+<div class="flex md:flex-row-reverse flex-wrap">
+  <div class="w-full md:w-1/4 p-4 text-center">
+   <div class="font-bold text-xl mb-2">Saved Portraits</div>
+   <ul>
+    <% @saved_portraits.each do |portrait| %>
+        <%= render  "preview",  portrait: portrait %>
+    <% end %>
+   </ul>
+  </div>
+  <div id="portraits" data-turbolinks-permanent class="w-full md:w-3/4 p-4 text-center">
+    <div class="mt-16 container mx-auto flex flex-wrap">
+      <% @images.each do |image| %>
+        <%= render "portrait", image: image %>
+      <% end %>
+    </div>
+  </div>
+</div>

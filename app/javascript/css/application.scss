@@ -10,3 +10,12 @@ img.disabled {
   filter: blur(1px);
   opacity: 0.5;
 }
+
+.modal {
+  transition: opacity 0.25s ease;
+}
+
+body.modal-active {
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}

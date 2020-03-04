@@ -9,7 +9,7 @@
     <meta name="description" lang="en" content="">
     <meta name="description" lang="es" content="">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
+    <meta name="turbolinks-cache-control" content="no-preview">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <%= csrf_meta_tags %>
@@ -17,6 +17,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'stylesheets', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'turbolinks_config', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
