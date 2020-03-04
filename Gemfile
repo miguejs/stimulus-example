@@ -31,19 +31,8 @@ group :development do
 end
 
 # Test gems
-group :test do
-  gem "shoulda-matchers"
-  # Generate test coverage reports:
-  gem "simplecov", "~> 0.16.1", require: false
-  # Format test coverage reports for console output:
-  gem "simplecov-console", "~> 0.4.2", require: false
-  gem "simplecov-json", require: false
-  gem "simplecov-reporter", require: false
-end
 
 group :development, :test do
-  gem "bullet"
-
   # Use Pry as your rails console
   gem 'pry-rails', '~> 0.3.9'
 
