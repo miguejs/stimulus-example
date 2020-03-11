@@ -1,22 +1,21 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  static targets = ['image']
+  static targets = ['image', 'changeButton']
 
-  connect() {
-    console.log("stimulus is working")
-    console.log("image target is ", this.imageTarget)
+  async changePicture(event) {
+    this.toggleAvailability()
+    this.imageTarget.src = await this.getRamdomPicture()
+    this.toggleAvailability()
   }
 
-  changePicture(event) {
-    let button = event.currentTarget
-    button.disabled = true
-    this.imageTarget.classList.add('disabled')
+  toggleAvailability() {
+    this.changeButtonTarget.disabled = !this.changeButtonTarget.disabled
+    this.imageTarget.classList.toggle('disabled')
+  }
 
-    fetch('https://picsum.photos/700/500').then((response) => {
-      this.imageTarget.src = response.url
-      this.imageTarget.classList.remove('disabled')
-      button.disabled = false
-    })
+  async getRamdomPicture() {
+    const response = await fetch('https://picsum.photos/700/500')
+    return response.url
   }
 }
