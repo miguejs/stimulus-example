@@ -1,10 +1,11 @@
-<div data-controller="portrait" class="mt-16 container mx-auto flex flex-wrap justify-center">
+<div data-controller="portrait" data-portrait-url="https://picsum.photos"
+     class="mt-16 container mx-auto flex flex-wrap justify-center">
   <div class="max-w-sm rounded overflow-hidden shadow-lg object-none object-center">
     <button data-target="portrait.changeButton" data-action="portrait#changePicture">
-      <img data-target="portrait.image" class="w-full" src="https://picsum.photos/700/500">
+      <img data-target="portrait.image" class="w-full" src="https://dapp.dblog.org/img/default.jpg">
     </button>
     <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">Artist</div>
+      <div class="font-bold text-xl mb-2" data-target="portrait.author">Searching...</div>
     </div>
   </div>
 </div>
