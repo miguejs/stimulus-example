@@ -17,8 +17,11 @@
 
 require("css/application.scss")
 import { Application } from "stimulus"
+import Rails from '@rails/ujs';
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-
+var Turbolinks = require("turbolinks")
+Turbolinks.start()
+Rails.start()
 const application = Application.start()
 const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
