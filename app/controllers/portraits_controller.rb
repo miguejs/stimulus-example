@@ -1,8 +1,8 @@
 class PortraitsController < ApplicationController
+  before_action :set_portrait, only: [:edit]
+  before_action :set_portraits, only: [:edit, :index]
   def index
-    @images = default_images
     @portrait = Portrait.new
-    @portraits = Portrait.order(created_at: :desc)
   end
 
   def edit
@@ -18,6 +18,15 @@ class PortraitsController < ApplicationController
   end
 
   private
+
+  def set_portrait
+    @portrait = Portrait.find(params[:id])
+  end
+
+  def set_portraits
+    @images = default_images
+    @portraits = Portrait.order(created_at: :desc)
+  end
 
   def default_images
     JSON.parse(File.read('default_images.json'))
