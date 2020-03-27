@@ -1,5 +1,5 @@
 class PortraitsController < ApplicationController
-  before_action :set_portrait, only: [:edit]
+  before_action :set_portrait, only: [:edit, :update]
   before_action :set_portraits, only: [:edit, :index]
   def index
     @portrait = Portrait.new
@@ -11,6 +11,14 @@ class PortraitsController < ApplicationController
   def create
     @portrait = Portrait.new(portrait_params)
     if @portrait.save
+      render
+    else
+      render :index
+    end
+  end
+
+  def update
+    if @portrait.update(portrait_params)
       render
     else
       render :index
